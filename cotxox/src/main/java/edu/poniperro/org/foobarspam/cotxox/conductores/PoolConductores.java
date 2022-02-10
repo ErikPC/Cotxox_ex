@@ -1,17 +1,22 @@
 package edu.poniperro.org.foobarspam.cotxox.conductores;
 
-public class PoolConductores {
-    private List<Conductor> = new ArrayList(PoolConductores);
+import java.util.ArrayList;
+import java.util.Optional;
 
-    PoolConductores(List<Conductor> poolConductores){
+public class PoolConductores {
+    private ArrayList<Conductor> poolConductores = new ArrayList<>();
+
+    PoolConductores(ArrayList<Conductor> poolConductores) {
         this.poolConductores = poolConductores;
     }
 
-    public List<conductores> getPoolConductores() {
+    public ArrayList<Conductor> getPoolConductores() {
         return this.poolConductores;
     }
 
-    public asignarConductor(){
-
+    public Optional<Conductor> asignarConductor() {
+        Optional<Conductor> condutorAsignado = getPoolConductores().stream().filter(c -> !c.getOcupado())
+                .findAny();
+        return condutorAsignado;
     }
 }
