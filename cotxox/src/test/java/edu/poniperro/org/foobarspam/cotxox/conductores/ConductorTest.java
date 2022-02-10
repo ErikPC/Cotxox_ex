@@ -26,21 +26,21 @@ public class ConductorTest {
 
     @Test
     public void getValoracionTest() {
-        samuele.setValoraciones((byte) 1);
-        samuele.setValoraciones((byte) 2);
+        samuele.setValoracion((byte) 1);
+        samuele.setValoracion((byte) 2);
         assertEquals(1.5, samuele.getValoracion(), 0);
     }
 
     @Test
     public void getNumeroValoracionesTest() {
-        samuele.setValoraciones((byte) 1);
-        samuele.setValoraciones((byte) 2);
+        samuele.setValoracion((byte) 1);
+        samuele.setValoracion((byte) 2);
         assertEquals(2, samuele.getNumeroValoraciones());
     }
 
     @Test
     public void setValoracionesTest() {
-        samuele.setValoraciones((byte) 2);
+        samuele.setValoracion((byte) 2);
         assertEquals(1, samuele.getNumeroValoraciones());
     }
 
