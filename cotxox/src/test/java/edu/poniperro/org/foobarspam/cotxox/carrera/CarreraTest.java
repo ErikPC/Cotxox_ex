@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.poniperro.org.foobarspam.cotxox.conductores.Conductor;
+import edu.poniperro.org.foobarspam.cotxox.conductores.ConductorTest;
 
 public class CarreraTest {
     Carrera carrera;
@@ -55,15 +55,15 @@ public class CarreraTest {
 
     @Test
     public void carreraConductorTest() {
-        Conductor juan = new Conductor();
+        ConductorTest juan = new ConductorTest();
         carrera.setConductor(juan);
         assertEquals(juan, carrera.getConductor());
     }
 
     @Test
     public void carreraPoolConductoresTest() {
-        Conductor josep = new Conductor();
-        PoolConductores juan = new PoolConductores(new Conductor[] { josep });
+        ConductorTest josep = new ConductorTest();
+        PoolConductores juan = new PoolConductores(new ConductorTest[] { josep });
         assertEquals(josep, carrera.getConductor());
     }
 
@@ -94,7 +94,7 @@ public class CarreraTest {
 
     @Test
     public void liberarConductorTest() {
-        Conductor juan = new Conductor();
+        ConductorTest juan = new ConductorTest();
         carrera.setConductor(juan);
         assertEquals(juan, carrera.getConductor());
         carrera.liberarConductor();
