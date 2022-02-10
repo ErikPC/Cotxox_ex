@@ -10,10 +10,10 @@ public class Conductor {
     private boolean ocupado;
     private ArrayList<Byte> valoraciones = new ArrayList<>();
 
-    Conductor() {
+    public Conductor() {
     }
 
-    Conductor(String nombre) {
+    public Conductor(String nombre) {
         this.nombre = nombre;
     }
 
@@ -45,7 +45,7 @@ public class Conductor {
         return this.valoraciones.size();
     }
 
-    public void setValoraciones(Byte valoracion) {
+    public void setValoracion(Byte valoracion) {
         this.valoraciones.add(valoracion);
     }
 
