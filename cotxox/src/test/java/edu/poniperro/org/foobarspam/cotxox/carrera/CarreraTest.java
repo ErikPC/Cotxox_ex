@@ -4,14 +4,19 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.poniperro.org.foobarspam.cotxox.conductores.Conductor;
 import edu.poniperro.org.foobarspam.cotxox.conductores.ConductorTest;
+import edu.poniperro.org.foobarspam.cotxox.conductores.PoolConductores;
 
 public class CarreraTest {
     Carrera carrera;
-    String tarjetaCredito = "123456789S";
+    String tarjetaCredito = "123456789LSD";
 
     @Before
     public void setup() {
@@ -38,7 +43,7 @@ public class CarreraTest {
     @Test
     public void carreraDistanciaTest() {
         carrera.setDistancia(3.6);
-        assertEquals(3.6, carrera.getDistancia());
+        assertEquals(3.6, carrera.getDistancia(), 0);
     }
 
     @Test
@@ -55,23 +60,29 @@ public class CarreraTest {
 
     @Test
     public void carreraConductorTest() {
-        ConductorTest juan = new ConductorTest();
+        Conductor juan = new Conductor("Juan");
         carrera.setConductor(juan);
-        assertEquals(juan, carrera.getConductor());
+        assertEquals("Juan", carrera.getConductor().getNombre());
     }
 
     @Test
     public void carreraPoolConductoresTest() {
-        ConductorTest josep = new ConductorTest();
-        PoolConductores juan = new PoolConductores(new ConductorTest[] { josep });
-        assertEquals(josep, carrera.getConductor());
+        Conductor josep = new Conductor("Josep");
+        PoolConductores conductores = new PoolConductores(new ArrayList<Conductor>() {
+            {
+                add(josep);
+            }
+
+        });
+        carrera.asignarConductor(conductores);
+        assertTrue(carrera.getConductor().getOcupado());
     }
 
     @Test
     public void carreraCosteEsperadoTest() {
         carrera.setDistancia(10);
         carrera.setTiempoEsperado(10);
-        assertEquals(17, carrera.getCosteEsperado());
+        assertEquals(17, carrera.getCosteEsperado(), 0);
     }
 
     @Test
@@ -82,8 +93,9 @@ public class CarreraTest {
     @Test
     public void getCosteTotalTest() {
         carrera.setDistancia(10);
-        carrera.setTiempoCarrera(10);
-        assertEquals(17, carrera.getCosteTotal());
+        carrera.setTiempoEsperado(10);
+        carrera.getCosteEsperado();
+        assertEquals(17, carrera.getCosteTotal(), 0);
     }
 
     @Test
@@ -94,7 +106,7 @@ public class CarreraTest {
 
     @Test
     public void liberarConductorTest() {
-        ConductorTest juan = new ConductorTest();
+        Conductor juan = new Conductor("Juan");
         carrera.setConductor(juan);
         assertEquals(juan, carrera.getConductor());
         carrera.liberarConductor();
