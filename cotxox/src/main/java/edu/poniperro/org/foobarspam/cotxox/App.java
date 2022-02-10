@@ -1,13 +1,12 @@
 package edu.poniperro.org.foobarspam.cotxox;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.foobarspam.cotxox.carrera.Carrera;
-import org.foobarspam.cotxox.conductores.Conductor;
-import org.foobarspam.cotxox.conductores.PoolConductores;
+import edu.poniperro.org.foobarspam.cotxox.carrera.Carrera;
+import edu.poniperro.org.foobarspam.cotxox.conductores.Conductor;
+import edu.poniperro.org.foobarspam.cotxox.conductores.PoolConductores;
 
-public class Cotxox {
+public class App {
 
     public static void main(String[] args) {
 
@@ -51,7 +50,7 @@ public class Cotxox {
          * La flota es un objeto de tipo PoolConductores.
          */
 
-        List<Conductor> poolConductores = new ArrayList<Conductor>();
+        ArrayList<Conductor> poolConductores = new ArrayList<Conductor>();
         Conductor conductor = null;
 
         // creamos objetos conductor y los metemos en el array
@@ -90,7 +89,7 @@ public class Cotxox {
         System.out.println("Stars: " + carrera.getConductor().getValoracion());
         System.out.println("From: " + carrera.getOrigen());
         System.out.println("To: " + carrera.getDestino());
-        boolean ocupado = carrera.getConductor().isOcupado();
+        boolean ocupado = carrera.getConductor().getOcupado();
         if (ocupado) {
             System.out.println("Disponible para ti");
         } else {
@@ -109,7 +108,7 @@ public class Cotxox {
         System.out.println("TIP: " + carrera.getPropina());
         System.out.println("Visa: " + carrera.getTarjetaCredito());
         System.out.println("Total: " + carrera.getCosteTotal());
-        System.out.println("Ocupado?: " + carrera.getConductor().isOcupado());
+        System.out.println("Ocupado?: " + carrera.getConductor().getOcupado());
 
         System.out.println("\n#####" + "\t Rate your driver: \t" + "#####\n");
 
