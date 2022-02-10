@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import edu.poniperro.org.foobarspam.cotxox.carrera.Carrera;
+
 public class TarifaTest {
     @Test
     public void getCosteDistanciaTest() {
@@ -18,12 +20,12 @@ public class TarifaTest {
 
     @Test
     public void getCosteTotalEsperadoMinimoTest() {
-        Carrera carrera = new Carrera();
-        assertEquals(5.0, Tarifa.getCosteTotalEsperado(carrera));
+        Carrera carrera = new Carrera("132132131645LSD");
+        assertEquals(5.0, Tarifa.getCosteTotalEsperado(carrera), 0);
     }
 
     public void getCosteTotalEsperadoTest() {
-        Carrera carrera = new Carrera();
-        assertEquals(17.0, Tarifa.getCosteTotalEsperado(carrera));
+        Carrera carrera = new Carrera("132132131645LSD");
+        assertEquals(17.0, Tarifa.getCosteTotalEsperado(carrera), 0);
     }
 }
