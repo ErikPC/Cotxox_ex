@@ -6,7 +6,7 @@ import java.util.Optional;
 public class PoolConductores {
     private ArrayList<Conductor> poolConductores = new ArrayList<>();
 
-    PoolConductores(ArrayList<Conductor> poolConductores) {
+    public PoolConductores(ArrayList<Conductor> poolConductores) {
         this.poolConductores = poolConductores;
     }
 
